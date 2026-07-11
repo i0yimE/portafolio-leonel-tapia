@@ -147,17 +147,6 @@
     });
   }
 
-  /* ---------- Print / PDF ---------- */
-  function initPrintButton() {
-    $$("[data-print-btn]").forEach(btn => {
-      btn.addEventListener("click", () => window.print());
-    });
-    window.addEventListener("beforeprint", () => {
-      $$("[data-reveal]").forEach(el => el.classList.add("is-revealed"));
-      $$("[data-count-to]").forEach(el => { el.textContent = el.dataset.countTo; });
-    });
-  }
-
   /* ---------- Hover preview video ---------- */
   function initHoverPreview() {
     $$("[data-preview]").forEach(card => {
@@ -207,7 +196,6 @@
   function boot() {
     safe(initNav, "initNav");
     safe(initMobileNav, "initMobileNav");
-    safe(initPrintButton, "initPrintButton");
     safe(initSmoothAnchors, "initSmoothAnchors");
     safe(initReveals, "initReveals");
     safe(initCursor, "initCursor");

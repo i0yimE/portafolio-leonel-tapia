@@ -179,8 +179,6 @@ ul { list-style: none; padding: 0; }
 @media (min-width: 960px) { .nav-links { display: flex; } }
 .nav-cta { display: none; }
 @media (min-width: 720px) { .nav-cta { display: inline-flex; } }
-.nav-pdf { display: none; font-size: 0.85rem; padding: 0.75rem 1.2rem; }
-@media (min-width: 960px) { .nav-pdf { display: inline-flex; } }
 
 .nav-toggle {
   display: grid; place-items: center;
@@ -207,17 +205,6 @@ ul { list-style: none; padding: 0; }
 .nav-mobile[data-open="true"] { clip-path: circle(150% at calc(100% - 32px) 32px); }
 .nav-mobile-links { display: flex; flex-direction: column; gap: 1.6rem; text-align: center; }
 .nav-mobile-links a { font-family: var(--serif); font-size: 2rem; }
-.nav-mobile-pdf {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-mute);
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: 0.7rem 1.4rem;
-}
 
 /* =============================================================
    6. Hero
@@ -676,60 +663,4 @@ ul { list-style: none; padding: 0; }
   html { scroll-behavior: auto; }
   .hero-badge svg { animation: none; }
   .cta-banner::before { animation: none; }
-}
-
-/* =============================================================
-   17. Print / PDF
-   ============================================================= */
-@media print {
-  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-
-  html, body { background: #fff; font-size: 11pt; }
-
-  .nav, .nav-mobile, .cursor, .skip-link,
-  .hero-badge, .work-card-media video,
-  .work-card-media[data-preview]::after {
-    display: none !important;
-  }
-
-  main { padding-top: 0 !important; }
-  .hero { padding-top: 0.5in; }
-
-  .hero-grid { grid-template-columns: 1fr !important; }
-  .hero-figure-frame { aspect-ratio: 16 / 10; max-width: 3.2in; margin-inline: auto; }
-  .hero-location { position: static; display: inline-flex; margin-top: 0.6rem; box-shadow: none; }
-
-  .stats-bar { grid-template-columns: repeat(3, 1fr) !important; background: transparent; border: 1px solid #ccc; }
-  .stat { border-left: 1px solid #ccc !important; }
-
-  .works-grid-case { grid-template-columns: 1fr !important; }
-  .work-card, .service-item, .process-step, .sector-block {
-    break-inside: avoid;
-  }
-  .work-card { border: 1px solid #ddd; margin-bottom: 0.3in; }
-  .work-card-media { aspect-ratio: 21 / 9; }
-
-  .services-grid { grid-template-columns: 1fr !important; }
-  .process-row { grid-template-columns: repeat(3, 1fr) !important; }
-
-  .cta-banner {
-    background: #fff !important;
-    color: #000 !important;
-    border: 1px solid #ccc;
-  }
-  .cta-banner::before { display: none; }
-  .cta-note { color: #444 !important; }
-  .btn-cream { background: #fff !important; border: 1px solid #999; color: #000 !important; box-shadow: none; }
-
-  a[href]::after { content: none; }
-  .work-card-link[href]::after,
-  .footer-contact-item[href]::after {
-    content: " (" attr(href) ")";
-    font-weight: 400;
-    font-size: 0.82em;
-    color: #555;
-  }
-
-  .btn, a { box-shadow: none !important; }
-  section, .footer { break-inside: avoid-page; }
 }
